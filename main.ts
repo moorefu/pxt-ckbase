@@ -4,15 +4,6 @@
 //% weight=100 color=#436EEE icon="\uf1cb"
 //% block="Ckmaker-Base"
 namespace ckmakerBase {
-    export enum speedEnum {
-        //% block="SPEED1"
-        SPEED1 = 8,
-        //% block="SPEED2"
-        SPEED2 = 4,
-        //% block="SPEED3"
-        SPEED3 = 1
-    };
-
     const stepperAllSteps = 2048;
 
     let stepperCh0: DigitalPin;
@@ -21,7 +12,7 @@ namespace ckmakerBase {
     let stepperCh3: DigitalPin;
 
     let stepperDirection: number;
-    let stepperSpeed: speedEnum;
+    let stepperSpeed: number;
 
     /**
      * TODO: describe your function here
@@ -45,13 +36,13 @@ namespace ckmakerBase {
         stepperCh1 = in1;
         stepperCh2 = in2;
         stepperCh3 = in3;
-        stepperSpeed = speedEnum.SPEED1;
+        stepperSpeed = 60;
     }
 
 
     //%blockId=ckmaker_setstepperSpeed block="setstepperSpeed |%speed"
     //% weight=199 blockGap=3 color=#00BFFF
-    export function setstepperSpeed(speed: speedEnum) {
+    export function setstepperSpeed(speed: number) {
         stepperSpeed = speed;
     }
 
